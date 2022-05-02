@@ -25,8 +25,10 @@
 ![2](http://halo.itmuzi.cc/upload/2022/04/2.png)
 #### 报错：
 如果安装出现-bash： unzip未找到命令
+
 ![3](http://halo.itmuzi.cc/upload/2022/04/3.png)
 使用yum安装unzip，方可解决
+
 ![4](http://halo.itmuzi.cc/upload/2022/04/4.png)
 
 ### 1.2 添加启动参数
@@ -34,6 +36,7 @@
 ```
   mkdir -p /etc/systemd/system/docker.service.d/
 ```
+
 ![5-1651313156586](http://halo.itmuzi.cc/upload/2022/04/5-1651313156586.png)
 
 将下列整段复制进命令行
@@ -45,17 +48,20 @@ ExecStart=/usr/bin/dockerd -H unix:///var/run/docker.sock -H tcp://0.0.0.0:2376 
 ![6](http://halo.itmuzi.cc/upload/2022/04/6.png)
 
 ### 1.3 置并重启服务
-  ```
-  systemctl daemon-reload  && systemctl restart docker
-  ```
+```
+systemctl daemon-reload  && systemctl restart docker
+```
 ![7](http://halo.itmuzi.cc/upload/2022/04/7.png)
+
 如果没有出现任何提示说明上面配置正确可以进入下面的配置
 #### 检查:
 可以安装net-tools检查2376是否成功运行
+
 ![8](http://halo.itmuzi.cc/upload/2022/04/8.png)
 ```
   netstat -ntl
 ```
+
 ![9](http://halo.itmuzi.cc/upload/2022/04/9.png)
 
 ## 二、FRPC 打通内网机器到公网
